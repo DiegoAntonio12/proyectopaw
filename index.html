@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentos y Evolución del Chat Web</title>
+</head>
+<body>
+
+    <div>
+        <section>
+            <div>
+                <h1>FUNDAMENTOS<br>Y EVOLUCIÓN<br>DEL CHAT WEB</h1>
+                <p>Explorando la arquitectura técnica y la evolución de los protocolos de mensajería en tiempo real para el desarrollo moderno.</p>
+                <a href="#arquitectura">Explorar Arquitectura</a>
+            </div>
+            <div>
+                <img src="img/chatweb.png" alt="Chat Web">
+            </div>
+        </section>
+
+        <section>
+            <div>01</div>
+            <div>
+                <h2>Intercambio Bidireccional</h2>
+                <p>El chat web redefine la comunicación mediante un flujo de datos bidireccional instantáneo. A diferencia del paradigma tradicional de Petición-Respuesta, donde el servidor es un receptor pasivo, el sistema moderno permite que el servidor envíe actualizaciones proactivamente al cliente. Esta arquitectura elimina el retraso inherente a las peticiones periódicas, permitiendo una experiencia de usuario fluida y sin interrupciones.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Limitaciones del Modelo HTTP</h2>
+            <div>
+                <div>
+                    <h3>Sondeo Corto</h3>
+                    <p>El cliente inicia solicitudes periódicas, generando un desperdicio masivo de ancho de banda y CPU debido a encabezados HTTP redundantes en respuestas vacías.</p>
+                </div>
+                <div>
+                    <h3>Sondeo Largo</h3>
+                    <p>El servidor mantiene la conexión abierta hasta que existan datos, consumiendo excesivos recursos de socket y sufriendo de sobrecarga en el reconectado constante.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="arquitectura">
+        <h2>Arquitectura de Capas</h2>
+        <div>
+            <div>
+                <img src="img/presentacion.png" alt="Presentación">
+                <h3>Capa de Presentación</h3>
+                <p>Interfaz de usuario y gestión de conexiones iniciales. La capa cliente es el puente entre el usuario y el sistema, encargada de la experiencia de interacción inmediata.</p>
+            </div>
+            <div>
+                <img src="img/procesamiento.png" alt="Procesamiento">
+                <h3>Capa de Procesamiento</h3>
+                <p>Motor de eventos y gestión de sockets. Esta capa es el corazón del sistema, gestionando miles de conexiones TCP simultáneamente con eficiencia y bajo consumo de recursos.</p>
+            </div>
+            <div>
+                <img src="img/persistencia.png" alt="Persistencia">
+                <h3>Capa de Persistencia</h3>
+                <p>Almacenamiento de datos y caché. Garantiza la durabilidad y recuperación de mensajes, asegurando que la información no se pierda en caso de desconexión del cliente.</p>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <hr>
+        <h2>Arquitectura No Bloqueante</h2>
+        <div>
+            <div>
+                <img src="img/nodejs.png" alt="Node.js">
+                <h3>Node.js</h3>
+                <p>Utiliza un solo hilo con I/O no bloqueante, delegando operaciones de red al motor libuv para máxima eficiencia.</p>
+            </div>
+            <div>
+                <img src="img/go.png" alt="Go">
+                <h3>Go</h3>
+                <p>Permite manejar cientos de miles de conexiones concurrentes utilizando rutinas ligeras gestionadas por el runtime de Go.</p>
+            </div>
+            <div>
+                <img src="img/python.png" alt="Python">
+                <h3>Python</h3>
+                <p>Permite gestionar WebSockets de forma asíncrona integrando el motor asyncio para una escalabilidad extrema.</p>
+            </div>
+            <div>
+                <img src="img/c#.png" alt="C#">
+                <h3>C#</h3>
+                <p>Abstrae la comunicación en tiempo real seleccionando automáticamente WebSockets, Server-Sent Events o Long Polling.</p>
+            </div>
+        </div>
+
+        <footer>
+            <div>■ LOGO</div>
+            <p>© 2026 ChatWeb. Todos los derechos reservados.<br>
+            Correo: diego.silva48@unach.mx | Licenciatura en Sistemas Computacionales | Grupo 5-K | Materia: Programación de Aplicaciones Web</p>
+        </footer>
+    </div>
+
+</body>
+</html>
