@@ -2,237 +2,139 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fundamentos y Evolución del Chat Web</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: system-ui, sans-serif; }
+        body { color: #1a1a1a; }
+        main, footer { max-width: 1050px; margin: auto; padding: 0 20px; }
+        .box { border: 1.5px solid #111; padding: 20px; background: #fff; }
+        .grid { display: grid; gap: 20px; margin-bottom: 45px; }
+        
+        .hero { grid-template-columns: 1.2fr 1fr; margin-top: 40px; }
+        .hero h1 { font-size: 2.3rem; color: #0b1a30; margin-bottom: 15px; }
+        .btn { background: #ff5722; color: #fff; border: 0; padding: 10px 20px; font-weight: 600; text-decoration: none; display: inline-block; margin-top: 15px; }
+        .hero img { width: 100%; height: 260px; object-fit: cover; }
+
+        .bidi { display: flex; gap: 30px; align-items: flex-start; margin-bottom: 45px; }
+        .bidi .num { font-size: 3rem; color: #ff5722; font-weight: 700; width: 140px; text-align: center; }
+
+        .cols-2 { grid-template-columns: 1fr 1fr; }
+        .cols-3 { grid-template-columns: repeat(3, 1fr); }
+        .cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+        .icon-sq { width: 34px; height: 34px; background: #0d3b66; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: bold; margin-bottom: 10px; }
+        
+        .bg-gray { background: #f0f4f8; padding: 40px 0; }
+        .card-img { height: 160px; border: 1px solid #ddd; margin-bottom: 12px; }
+        .card-img img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .tech-img { height: 35px; margin-bottom: 10px; object-fit: contain; }
+        h2 { font-size: 2rem; color: #0b1a30; margin-bottom: 20px; font-weight: 400; }
+        h3 { font-size: 1.15rem; color: #0b1a30; margin-bottom: 8px; }
+        p { font-size: 0.83rem; color: #555; line-height: 1.45; }
+
+        hr { border: 0; height: 3px; background: #ff5722; margin: 35px 0 25px; }
+        footer { border-top: 1px solid #e2e8f0; padding: 25px 20px 40px; }
+        .logo { background: #111; color: #fff; padding: 4px 8px; font-size: 0.75rem; font-weight: bold; width: fit-content; margin-bottom: 15px; }
+
+        @media (max-width: 800px) { .hero, .bidi, .grid { grid-template-columns: 1fr !important; flex-direction: column; } }
+    </style>
 </head>
-<body bgcolor="#ffffff" text="#1a1a1a" link="#ff5722" vlink="#e64a19" alink="#ff5722">
+<body>
 
-    <table width="1050" align="center" border="0" cellpadding="10" cellspacing="0">
-        <tr>
-            <td width="55%" valign="top">
-                <table border="2" bordercolor="#111111" cellpadding="30" cellspacing="0" width="100%" height="300">
-                    <tr>
-                        <td valign="middle">
-                            <h1><font face="Arial, Helvetica, sans-serif" color="#0b1a30">FUNDAMENTOS<br>Y EVOLUCIÓN<br>DEL CHAT WEB</font></h1>
-                            <p><font face="Arial, Helvetica, sans-serif" size="2" color="#444444">Explorando la arquitectura técnica y la evolución de los protocolos de mensajería en tiempo real para el desarrollo moderno.</font></p>
-                            <br>
-                            <table bgcolor="#ff5722" border="0" cellpadding="10" cellspacing="0">
-                                <tr>
-                                    <td>
-                                        <a href="#arquitectura"><font face="Arial, Helvetica, sans-serif" size="2" color="#ffffff"><b>Explorar Arquitectura</b></font></a>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-            <td width="45%" valign="top">
-                <table border="2" bordercolor="#111111" cellpadding="10" cellspacing="0" width="100%" height="300">
-                    <tr>
-                        <td align="center" valign="middle">
-                            <img src="img/chatweb.png" alt="Chat Web" width="390" height="260">
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+    <main>
+        <section class="grid hero">
+            <div class="box">
+                <h1>FUNDAMENTOS<br>Y EVOLUCIÓN<br>DEL CHAT WEB</h1>
+                <p>Explorando la arquitectura técnica y la evolución de los protocolos de mensajería en tiempo real para el desarrollo moderno.</p>
+                <a href="#arquitectura" class="btn">Explorar Arquitectura</a>
+            </div>
+            <div class="box" style="padding: 10px;">
+                <img src="img/chatweb.png" alt="Chat Web">
+            </div>
+        </section>
 
-    <br>
+        <section class="bidi">
+            <div class="box num">01</div>
+            <div>
+                <h2>Intercambio Bidireccional</h2>
+                <p style="text-align: justify;">El chat web redefine la comunicación mediante un flujo de datos bidireccional instantáneo. A diferencia del paradigma tradicional de Petición-Respuesta, donde el servidor es un receptor pasivo, el sistema moderno permite que el servidor envíe actualizaciones proactivamente al cliente. Esta arquitectura elimina el retraso inherente a las peticiones periódicas, permitiendo una experiencia de usuario fluida y sin interrupciones.</p>
+            </div>
+        </section>
 
-    <table width="1050" align="center" border="0" cellpadding="10" cellspacing="0">
-        <tr>
-            <td width="160" valign="top">
-                <table border="2" bordercolor="#111111" cellpadding="0" cellspacing="0" width="160" height="100">
-                    <tr>
-                        <td align="center" valign="middle">
-                            <font face="Arial, Helvetica, sans-serif" size="7" color="#ff5722"><b>01</b></font>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-            <td valign="middle">
-                <h2><font face="Arial, Helvetica, sans-serif" color="#0d1b2a">Intercambio Bidireccional</font></h2>
-                <p align="justify"><font face="Arial, Helvetica, sans-serif" size="2" color="#4f5d75">El chat web redefine la comunicación mediante un flujo de datos bidireccional instantáneo. A diferencia del paradigma tradicional de Petición-Respuesta, donde el servidor es un receptor pasivo, el sistema moderno permite que el servidor envíe actualizaciones proactivamente al cliente. Esta arquitectura elimina el retraso inherente a las peticiones periódicas, permitiendo una experiencia de usuario fluida y sin interrupciones.</font></p>
-            </td>
-        </tr>
-    </table>
+        <section>
+            <h2>Limitaciones del<br>Modelo HTTP</h2>
+            <div class="grid cols-2">
+                <article class="box">
+                    <div class="icon-sq">HTTP</div>
+                    <h3>Sondeo Corto</h3>
+                    <p>El cliente inicia solicitudes periódicas, generando un desperdicio masivo de ancho de banda y CPU debido a encabezados HTTP redundantes en respuestas vacías.</p>
+                </article>
+                <article class="box">
+                    <div class="icon-sq"></div>
+                    <h3>Sondeo Largo</h3>
+                    <p>El servidor mantiene la conexión abierta hasta que existan datos, consumiendo excesivos recursos de socket y sufriendo de sobrecarga en el reconectado constante.</p>
+                </article>
+            </div>
+        </section>
+    </main>
 
-    <br>
+    <div class="bg-gray" id="arquitectura">
+        <main>
+            <h2>Arquitectura de Capas</h2>
+            <div class="grid cols-3">
+                <article class="box">
+                    <div class="card-img"><img src="img/presentacion.png" alt="Presentación"></div>
+                    <h3>Capa de Presentación</h3>
+                    <p>Interfaz de usuario y gestión de conexiones iniciales. La capa cliente es el puente entre el usuario y el sistema, encargada de la experiencia de interacción inmediata.</p>
+                </article>
+                <article class="box">
+                    <div class="card-img"><img src="img/procesamiento.png" alt="Procesamiento"></div>
+                    <h3>Capa de Procesamiento</h3>
+                    <p>Motor de eventos y gestión de sockets. Esta capa es el corazón del sistema, gestionando miles de conexiones TCP simultáneamente con eficiencia y bajo consumo de recursos.</p>
+                </article>
+                <article class="box">
+                    <div class="card-img"><img src="img/persistencia.png" alt="Persistencia"></div>
+                    <h3>Capa de Persistencia</h3>
+                    <p>Almacenamiento de datos y caché. Garantiza la durabilidad y recuperación de mensajes, asegurando que la información no se pierda en caso de desconexión del cliente.</p>
+                </article>
+            </div>
+        </main>
+    </div>
 
-    <table width="1050" align="center" border="0" cellpadding="10" cellspacing="0">
-        <tr>
-            <td colspan="2">
-                <h2><font face="Arial, Helvetica, sans-serif" color="#0b1a30">Limitaciones del<br>Modelo HTTP</font></h2>
-            </td>
-        </tr>
-        <tr>
-            <td width="50%" valign="top">
-                <table border="2" bordercolor="#111111" cellpadding="20" cellspacing="0" width="100%" height="170">
-                    <tr>
-                        <td valign="top">
-                            <table bgcolor="#0d3b66" width="36" height="36" border="0" cellpadding="0" cellspacing="0">
-                                <tr>
-                                    <td align="center" valign="middle"><font face="Arial, Helvetica, sans-serif" size="1" color="#ffffff"><b>HTTP</b></font></td>
-                                </tr>
-                            </table>
-                            <h3><font face="Arial, Helvetica, sans-serif" color="#0d1b2a">Sondeo Corto</font></h3>
-                            <p><font face="Arial, Helvetica, sans-serif" size="2" color="#555555">El cliente inicia solicitudes periódicas, generando un desperdicio masivo de ancho de banda y CPU debido a encabezados HTTP redundantes en respuestas vacías.</font></p>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-            <td width="50%" valign="top">
-                <table border="2" bordercolor="#111111" cellpadding="20" cellspacing="0" width="100%" height="170">
-                    <tr>
-                        <td valign="top">
-                            <table bgcolor="#0d3b66" width="36" height="36" border="0" cellpadding="0" cellspacing="0">
-                                <tr><td>&nbsp;</td></tr>
-                            </table>
-                            <h3><font face="Arial, Helvetica, sans-serif" color="#0d1b2a">Sondeo Largo</font></h3>
-                            <p><font face="Arial, Helvetica, sans-serif" size="2" color="#555555">El servidor mantiene la conexión abierta hasta que existan datos, consumiendo excesivos recursos de socket y sufriendo de sobrecarga en el reconectado constante.</font></p>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+    <main>
+        <hr>
+        <h2>Arquitectura No Bloqueante</h2>
+        <div class="grid cols-4">
+            <article class="box" style="background:#f8fafc;">
+                <img src="img/nodejs.png" alt="Node.js" class="tech-img">
+                <h3>Node.js</h3>
+                <p>Utiliza un solo hilo con I/O no bloqueante, delegando operaciones de red al motor libuv para máxima eficiencia.</p>
+            </article>
+            <article class="box" style="background:#f8fafc;">
+                <img src="img/go.png" alt="Go" class="tech-img">
+                <h3>Go</h3>
+                <p>Permite manejar cientos de miles de conexiones concurrentes utilizando rutinas ligeras gestionadas por el runtime de Go.</p>
+            </article>
+            <article class="box" style="background:#f8fafc;">
+                <img src="img/python.png" alt="Python" class="tech-img">
+                <h3>Python</h3>
+                <p>Permite gestionar WebSockets de forma asíncrona integrando el motor asyncio para una escalabilidad extrema.</p>
+            </article>
+            <article class="box" style="background:#f8fafc;">
+                <img src="img/c#.png" alt="C#" class="tech-img">
+                <h3>C#</h3>
+                <p>Abstrae la comunicación en tiempo real seleccionando automáticamente WebSockets, Server-Sent Events o Long Polling.</p>
+            </article>
+        </div>
+    </main>
 
-    <br><br>
-
-    <table width="100%" bgcolor="#f0f4f8" border="0" cellpadding="40" cellspacing="0" id="arquitectura">
-        <tr>
-            <td align="center">
-                <table width="1050" border="0" cellpadding="10" cellspacing="0">
-                    <tr>
-                        <td colspan="3">
-                            <h2><font face="Arial, Helvetica, sans-serif" color="#0b1a30">Arquitectura de Capas</font></h2>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="33%" valign="top">
-                            <table border="2" bordercolor="#111111" bgcolor="#ffffff" cellpadding="16" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="center" bgcolor="#ffffff">
-                                        <table border="1" bordercolor="#e0e0e0" cellpadding="0" cellspacing="0" width="100%">
-                                            <tr>
-                                                <td align="center"><img src="img/presentacion.png" alt="Presentación" width="270" height="150"></td>
-                                            </tr>
-                                        </table>
-                                        <h3 align="left"><font face="Arial, Helvetica, sans-serif" color="#0b1a30">Capa de Presentación</font></h3>
-                                        <p align="left"><font face="Arial, Helvetica, sans-serif" size="2" color="#4a5568">Interfaz de usuario y gestión de conexiones iniciales. La capa cliente es el puente entre el usuario y el sistema, encargada de la experiencia de interacción inmediata.</font></p>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td width="33%" valign="top">
-                            <table border="2" bordercolor="#111111" bgcolor="#ffffff" cellpadding="16" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="center" bgcolor="#ffffff">
-                                        <table border="1" bordercolor="#e0e0e0" cellpadding="0" cellspacing="0" width="100%">
-                                            <tr>
-                                                <td align="center"><img src="img/procesamiento.png" alt="Procesamiento" width="270" height="150"></td>
-                                            </tr>
-                                        </table>
-                                        <h3 align="left"><font face="Arial, Helvetica, sans-serif" color="#0b1a30">Capa de Procesamiento</font></h3>
-                                        <p align="left"><font face="Arial, Helvetica, sans-serif" size="2" color="#4a5568">Motor de eventos y gestión de sockets. Esta capa es el corazón del sistema, gestionando miles de conexiones TCP simultáneamente con eficiencia y bajo consumo de recursos.</font></p>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td width="33%" valign="top">
-                            <table border="2" bordercolor="#111111" bgcolor="#ffffff" cellpadding="16" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="center" bgcolor="#ffffff">
-                                        <table border="1" bordercolor="#e0e0e0" cellpadding="0" cellspacing="0" width="100%">
-                                            <tr>
-                                                <td align="center"><img src="img/persistencia.png" alt="Persistencia" width="270" height="150"></td>
-                                            </tr>
-                                        </table>
-                                        <h3 align="left"><font face="Arial, Helvetica, sans-serif" color="#0b1a30">Capa de Persistencia</font></h3>
-                                        <p align="left"><font face="Arial, Helvetica, sans-serif" size="2" color="#4a5568">Almacenamiento de datos y caché. Garantiza la durabilidad y recuperación de mensajes, asegurando que la información no se pierda en caso de desconexión del cliente.</font></p>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
-
-    <table width="1050" align="center" border="0" cellpadding="10" cellspacing="0">
-        <tr>
-            <td colspan="4">
-                <hr color="#ff5722" size="3">
-                <h2><font face="Arial, Helvetica, sans-serif" color="#0b1a30">Arquitectura No Bloqueante</font></h2>
-            </td>
-        </tr>
-        <tr>
-            <td width="25%" valign="top">
-                <table border="2" bordercolor="#111111" bgcolor="#f8fafc" cellpadding="16" cellspacing="0" width="100%" height="250">
-                    <tr>
-                        <td valign="top">
-                            <table height="40" border="0" cellpadding="0" cellspacing="0">
-                                <tr><td valign="middle"><img src="img/nodejs.png" alt="Node.js" height="34"></td></tr>
-                            </table>
-                            <h3><font face="Arial, Helvetica, sans-serif" color="#0b1a30">Node.js</font></h3>
-                            <p><font face="Arial, Helvetica, sans-serif" size="2" color="#4a5568">Utiliza un solo hilo con I/O no bloqueante, delegando operaciones de red al motor libuv para máxima eficiencia.</font></p>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-            <td width="25%" valign="top">
-                <table border="2" bordercolor="#111111" bgcolor="#f8fafc" cellpadding="16" cellspacing="0" width="100%" height="250">
-                    <tr>
-                        <td valign="top">
-                            <table height="40" border="0" cellpadding="0" cellspacing="0">
-                                <tr><td valign="middle"><img src="img/go.png" alt="Go" height="34"></td></tr>
-                            </table>
-                            <h3><font face="Arial, Helvetica, sans-serif" color="#0b1a30">Go</font></h3>
-                            <p><font face="Arial, Helvetica, sans-serif" size="2" color="#4a5568">Permite manejar cientos de miles de conexiones concurrentes utilizando rutinas ligeras gestionadas por el runtime de Go.</font></p>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-            <td width="25%" valign="top">
-                <table border="2" bordercolor="#111111" bgcolor="#f8fafc" cellpadding="16" cellspacing="0" width="100%" height="250">
-                    <tr>
-                        <td valign="top">
-                            <table height="40" border="0" cellpadding="0" cellspacing="0">
-                                <tr><td valign="middle"><img src="img/python.png" alt="Python" height="34"></td></tr>
-                            </table>
-                            <h3><font face="Arial, Helvetica, sans-serif" color="#0b1a30">Python</font></h3>
-                            <p><font face="Arial, Helvetica, sans-serif" size="2" color="#4a5568">Permite gestionar WebSockets de forma asíncrona integrando el motor asyncio para una escalabilidad extrema.</font></p>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-            <td width="25%" valign="top">
-                <table border="2" bordercolor="#111111" bgcolor="#f8fafc" cellpadding="16" cellspacing="0" width="100%" height="250">
-                    <tr>
-                        <td valign="top">
-                            <table height="40" border="0" cellpadding="0" cellspacing="0">
-                                <tr><td valign="middle"><img src="img/csharp.png" alt="C#" height="34"></td></tr>
-                            </table>
-                            <h3><font face="Arial, Helvetica, sans-serif" color="#0b1a30">C#</font></h3>
-                            <p><font face="Arial, Helvetica, sans-serif" size="2" color="#4a5568">Abstrae la comunicación en tiempo real seleccionando automáticamente WebSockets, Server-Sent Events o Long Polling.</font></p>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="4">
-                <br>
-                <hr color="#e2e8f0" size="1">
-                <table bgcolor="#111111" border="0" cellpadding="4" cellspacing="0">
-                </table>
-                <p><font face="Arial, Helvetica, sans-serif" size="2" color="#4a5568">© 2026 ChatWeb. Todos los derechos reservados.<br>
-                Correo: diego.silva48@unach.mx | Licenciatura en Sistemas Computacionales | Grupo 5-K | Materia: Programación de Aplicaciones Web</font></p>
-            </td>
-        </tr>
-    </table>
+    <footer>
+        <div class="logo">■ LOGO</div>
+        <p>© 2026 ChatWeb. Todos los derechos reservados.<br>
+        Correo: diego.silva48@unach.mx | Licenciatura en Sistemas Computacionales | Grupo 5-K | Materia: Programación de Aplicaciones Web</p>
+    </footer>
 
 </body>
 </html>
